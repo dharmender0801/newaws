@@ -25,11 +25,19 @@ jobs:
         distribution: 'temurin'
     - name: Install and use Maven 3.8.4
       run: |
-          # Download and install Maven 3.8.4
-          curl -sL https://apache.osuosl.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz | tar xz
-          export PATH="$PWD/apache-maven-3.8.4/bin:$PATH"
-          # Check the installed version
-          mvn -version
+        # Download Maven 3.8.4
+        wget -q https://apache.osuosl.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz
+    
+        # Extract Maven
+        tar xzf apache-maven-3.8.4-bin.tar.gz
+    
+        # Set environment variables
+        export M2_HOME="$PWD/apache-maven-3.8.4"
+        export M2="$M2_HOME/bin"
+        export PATH="$M2:$PATH"
+    
+        # Verify Maven installation
+        mvn -version
 
     - name: Build with Maven
       run: mvn clean package

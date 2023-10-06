@@ -29,7 +29,6 @@ jobs:
       run: mvn -B package --file /home/ubuntu/actions-runner/_work/newaws/newaws/Testing_CICD_pipeline/pom.xml
     - name: Checking is File Already Running 
       run : |
-        pkill -f "java -jar Testing_CICD_pipeline-0.0.1-SNAPSHOT.jar"
         nohup java -jar /home/ubuntu/actions-runner/_work/newaws/newaws/Testing_CICD_pipeline-0.0.1-SNAPSHOT.jar &
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     # - name: Update dependency graph

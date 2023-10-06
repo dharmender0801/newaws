@@ -29,7 +29,7 @@ jobs:
       run: mvn -B package --file /home/ubuntu/actions-runner/_work/newaws/newaws/Testing_CICD_pipeline/pom.xml
     - name: Running JAR in the background
       run: |
-        nohup java -jar /home/ubuntu/actions-runner/_work/newaws/newaws/Testing_CICD_pipeline/target/Testing_CICD_pipeline-0.0.1-SNAPSHOT.jar >> myapp.log 2>&1 &
+        sudo nohup java -jar /home/ubuntu/actions-runner/_work/newaws/newaws/Testing_CICD_pipeline/target/Testing_CICD_pipeline-0.0.1-SNAPSHOT.jar >> myapp.log 2>&1 &
 
    # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     # - name: Update dependency graph
